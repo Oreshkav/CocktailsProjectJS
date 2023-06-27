@@ -5,7 +5,7 @@ import styles from './Cocktails.module.css'
 
 function Coctails():  JSX.Element {
 
-  const {cocktailID} = useParams();
+  // const {cocktailID} = useParams();
   const [cocktails, setCocktails] = useState();
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function Coctails():  JSX.Element {
       <h3> Коктейлики</h3>
     {/* !cocktailID ? (  */}
       <ul className={styles.cardsList}>
-        
+
         {cocktails.map((oneCocktail) => (
           <li className={styles.card} key={oneCocktail.idDrink.toString()}>
             <span>{oneCocktail.strDrink}</span>
@@ -33,8 +33,8 @@ function Coctails():  JSX.Element {
             </div>
             <Link to={oneCocktail.idDrink.toString()}> Look more</Link>
           </li>
-
         ))}
+        
       </ul> 
      {/* )     */}
     </div>
