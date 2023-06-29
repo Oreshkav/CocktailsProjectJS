@@ -18,14 +18,14 @@
   width: 200px;
 }
 
-ul {
+.ulk {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(5, 1fr);
   gap: 8px;
 }
 
-li {
+.lishka {
   border-radius: 10px;
   max-width: 200px;
   padding: 16px;
