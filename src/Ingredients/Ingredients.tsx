@@ -1,8 +1,8 @@
 import React, { FormEvent, useEffect, useState } from 'react';
 import { Link, Outlet, useParams} from 'react-router-dom';
 import Ingredient from './types/Ingredient';
-import styles from './Cocktails.module.css';
-import Cocktail from './types/Cocktail';
+import styles from '../Cocktails/Cocktails.module.css';
+import Cocktail from '../Cocktails/types/Cocktail';
 
 function Ingredients() {
 

@@ -3,7 +3,8 @@ import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import CocktailsList from '../Cocktails/CocktailsList';
 import CocktailPage from '../Cocktails/CocktailPage';
-import Ingredients from '../Cocktails/Ingredients';
+import Ingredients from '../Ingredients/Ingredients';
+import HomePage from '../HomePage/HomePage';
 
 function App(): JSX.Element {
   return (
@@ -18,7 +19,7 @@ function App(): JSX.Element {
       </div>
       <br />
       <Routes >
-        <Route path="/" element={<CocktailsList />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="cocktailsList" element={<CocktailsList />}>
           <Route path=":cocktailID" element={<CocktailPage />} />
         </Route>

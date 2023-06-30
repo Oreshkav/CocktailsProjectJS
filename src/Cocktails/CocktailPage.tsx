@@ -74,7 +74,7 @@ function CocktailPage(): JSX.Element {
           {/* <h2>INGREDIENTS</h2> */}
           <div className={styles.ingredientsClass}>
             {ingredients.map((ingredient, index) => (
-              <div key={index}>
+              <div key={index}>                
                 <img
                   className={styles.imgCardIngredient}
                   src={`https://www.thecocktaildb.com/images/ingredients/${ingredient}-Small.png`}
