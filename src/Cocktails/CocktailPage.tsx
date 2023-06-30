@@ -7,9 +7,10 @@ function CocktailPage(): JSX.Element {
   const { cocktailID } = useParams();
   const [cocktail, setCocktail] = useState<CocktailBest | undefined>(undefined);
   const [ingredients, setIngredients] = useState<string[]>([]);
-  console.log("ingredients****");
-  console.log(ingredients);
+  const [drinkIngredientsMeasure, setDrinkIngredientsMeasure] = useState<string[]>([]);
 
+  // console.log("ingredients****");
+  // console.log(ingredients);
 
   useEffect(() => {
     fetch(
@@ -19,17 +20,21 @@ function CocktailPage(): JSX.Element {
       .then((json) => {
         const drink = json.drinks?.[0];
 
-        // console.log("🚀  drink:", drink);
+        // console.log("🚀 drink:", drink);
         if (drink) {
           const drinkIngredients: string[] = [];
+          const drinkIngredientsMeasure: string[] = [];
 
           for (let i = 1; i <= 15; i++) {
             const ingredient = drink[`strIngredient${i}`];
+            const IngredientsMeasure = drink[`strMeasure${i}`];
             if (ingredient) {
               drinkIngredients.push(ingredient);
+              drinkIngredientsMeasure.push(IngredientsMeasure);
             }
           }
           setIngredients(drinkIngredients);
+          setDrinkIngredientsMeasure(drinkIngredientsMeasure);
           setCocktail(drink);
         }
       })
@@ -58,7 +63,7 @@ function CocktailPage(): JSX.Element {
           />
         </div>
         <div className={styles.description}>
-          Type of glass: {cocktail.strGlass}           
+          Type of glass: {cocktail.strGlass}
         </div>
         <div className={styles.receipt} >
           <h3>RECIEPT: </h3>
@@ -66,9 +71,8 @@ function CocktailPage(): JSX.Element {
         </div>
 
         <div>
-          <h2>INGREDIENTS</h2>
-
-          <div className={styles.ingredients}>
+          {/* <h2>INGREDIENTS</h2> */}
+          <div className={styles.ingredientsClass}>
             {ingredients.map((ingredient, index) => (
               <div key={index}>
                 <img
@@ -76,10 +80,17 @@ function CocktailPage(): JSX.Element {
                   src={`https://www.thecocktaildb.com/images/ingredients/${ingredient}-Small.png`}
                   alt={ingredient}
                 />
-                <h5>{ingredient}</h5>
+                <p>{ingredient}</p>
               </div>
             ))}
           </div>
+          <div className={styles.ingredientsClass}>
+            {drinkIngredientsMeasure.map((measure, index2) => (
+              <div className={styles.measureClass} key={index2}>
+                <span>{`${measure}`}</span>
+              </div>
+            ))}
+            </div>
         </div>
       </div>
     </>

@@ -11,7 +11,7 @@ function App(): JSX.Element {
       <div className="header">
         <h1>Bar Jamajka </h1>
         <nav>
-          <Link to="cocktailsList" className='coktaillist'>Cocktail list</Link>
+          <Link to="cocktailsList" className='coktaillist'>Cocktails list</Link>
           <br />
           <Link to="ingredients" className='coktaillist'>Ingredients</Link>
         </nav>

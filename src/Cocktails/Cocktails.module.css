@@ -7,9 +7,12 @@ body {
   color: rgb(255, 255, 255);
   /* background-color: #270a04; */
   background-color: #1f1a19;
+  margin-bottom: 15px;
 }
 body a {
-  color: rgb(238, 26, 192);
+  /* color: rgb(238, 26, 192); */
+  color: rgb(216, 252, 14, 0.897);
+  text-decoration: none;
 }
 
 .cardsList {
@@ -29,12 +32,18 @@ body a {
 }
 
 .cocktailTitle {
-  color: rgb(255, 255, 255);
+  color: rgba(216, 252, 14, 0.897);
   font-size: 1.5em;
 }
 
+h1, h5, h6 {
+  margin-top: 3px;
+  margin-bottom: 5px
+}
+
+
 .description {
-color: rgb(255, 255, 255);
+color: rgba(216, 252, 14, 0.897);
 font-size: 1.2em;
 }
 
@@ -55,13 +64,21 @@ font-size: 1.2em;
   width: 150px;
 }
 
-.ingredients {
-  color: rgb(255, 255, 255);
+.ingredientsClass {
+  color: rgba(216, 252, 14, 0.897);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+
   /* align-items: flex-end; */
   /* height: 100%; */
   /* flex-wrap: wrap; */
+}
+.measureClass {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  justify-content: center;
+  font-size: 1em;
 }
 
 .selectIngredient {
@@ -83,7 +100,7 @@ font-size: 1.2em;
 }
 
 .buttonIngredient:hover {
-  background-color: rgb(247, 2, 226);
+  background-color: (216, 252, 14, 0.897);
   color: rgb(173, 150, 226);
 }
 
