@@ -1,5 +1,10 @@
 body {
-  color: rgb(236, 138, 184);
+  /* display: flex; */
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  flex-wrap: wrap;
+  color: rgb(255, 255, 255);
   /* background-color: #270a04; */
   background-color: #1f1a19;
 }
@@ -23,12 +28,63 @@ body a {
   list-style-type: none;
 }
 
+.cocktailTitle {
+  color: rgb(255, 255, 255);
+  font-size: 1.5em;
+}
+
+.description {
+color: rgb(255, 255, 255);
+font-size: 1.2em;
+}
+
+.receipt {
+  color: rgba(216, 252, 14, 0.897);
+  font-size: 1.2em;
+  }
+
 .img {
   width: 200px;
 }
 
 .imgCard {
   width: 400px;
+}
+
+.imgCardIngredient {
+  width: 150px;
+}
+
+.ingredients {
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  /* align-items: flex-end; */
+  /* height: 100%; */
+  /* flex-wrap: wrap; */
+}
+
+.selectIngredient {
+  width: 300px;
+  height: 30px;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.buttonIngredient {
+  background-color: rgb(134, 79, 116);
+  color: rgb(253, 249, 249);
+  border: 2px solid;
+  font-size: 12px;
+  padding: 0px 10px;
+  border-radius: 10px;
+  width: 100px; 
+  height: 30px; 
+}
+
+.buttonIngredient:hover {
+  background-color: rgb(247, 2, 226);
+  color: rgb(173, 150, 226);
 }
 
 .ulk {
@@ -45,10 +101,3 @@ body a {
   box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.75);
 }
 
-.ingredients {
-
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}

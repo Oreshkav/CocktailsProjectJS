@@ -35,14 +35,16 @@ function Ingredients() {
     { !cocktailID ?  (
       <div>
       <form onSubmit={handleSubmit}>
-        <select name="ingredients" id="ingredintSelect" onChange={(event) => setIngredientChoice(event.target.value)}>
+        <select className={styles.selectIngredient} name="ingredients" id="ingredintSelect" onChange={(event) => setIngredientChoice(event.target.value)}>
           {ingredient.map((eachIngredient) =>
           (<option value={eachIngredient.strIngredient1} key={eachIngredient.strIngredient1}>{eachIngredient.strIngredient1} </option>
           ))}
         </select>
 
-        <button type="submit">Filter</button>
+        <button className={styles.buttonIngredient} type="submit">Filter</button>
       </form>
+
+
 
         <ul className={styles.cardsList}>
           {cocktails.map((eachCocktail) => (

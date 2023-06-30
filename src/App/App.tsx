@@ -12,16 +12,17 @@ function App(): JSX.Element {
         <h1>Bar Jamajka </h1>
         <nav>
           <Link to="cocktailsList" className='coktaillist'>Cocktail list</Link>
-          <br/>
+          <br />
           <Link to="ingredients" className='coktaillist'>Ingredients</Link>
         </nav>
       </div>
       <br />
       <Routes >
+        <Route path="/" element={<CocktailsList />} />
         <Route path="cocktailsList" element={<CocktailsList />}>
           <Route path=":cocktailID" element={<CocktailPage />} />
         </Route>
-      <Route path="ingredients" element={<Ingredients />} >
+        <Route path="ingredients" element={<Ingredients />} >
           <Route path=":cocktailID" element={<CocktailPage />} />
         </Route>
       </Routes>

@@ -9,7 +9,7 @@ function CocktailPage(): JSX.Element {
   const [ingredients, setIngredients] = useState<string[]>([]);
   console.log("ingredients****");
   console.log(ingredients);
-  
+
 
   useEffect(() => {
     fetch(
@@ -19,7 +19,7 @@ function CocktailPage(): JSX.Element {
       .then((json) => {
         const drink = json.drinks?.[0];
 
-        console.log("🚀  drink:", drink);
+        // console.log("🚀  drink:", drink);
         if (drink) {
           const drinkIngredients: string[] = [];
 
@@ -46,7 +46,7 @@ function CocktailPage(): JSX.Element {
     <>
       <Link to="..">Back</Link>
       <div>
-        <div className="">
+        <div className={styles.cocktailTitle}>
           <h2>{cocktail.strDrink}</h2>
           <p>
             Category: {cocktail.strCategory} *** ID {cocktail.idDrink}
@@ -56,27 +56,30 @@ function CocktailPage(): JSX.Element {
             src={cocktail.strDrinkThumb}
             alt="cocktail"
           />
-          <h4>Type of glass: </h4>
-          <p>{cocktail.strGlass}</p>
-
-          <h4>Receipt: </h4>
+        </div>
+        <div className={styles.description}>
+          Type of glass: {cocktail.strGlass}           
+        </div>
+        <div className={styles.receipt} >
+          <h3>RECIEPT: </h3>
           <p>{cocktail.strInstructions}</p>
         </div>
 
         <div>
           <h2>INGREDIENTS</h2>
-        </div>
 
-        <div className="ingredients">
-          {ingredients.map((ingredient, index) => (
-            <div key={index}>
-              <img
-                src={`https://www.thecocktaildb.com/images/ingredients/${ingredient}-Small.png`}
-                alt={ingredient}
-              />
-              <h5>{ingredient}</h5>
-            </div>
-          ))}
+          <div className={styles.ingredients}>
+            {ingredients.map((ingredient, index) => (
+              <div key={index}>
+                <img
+                  className={styles.imgCardIngredient}
+                  src={`https://www.thecocktaildb.com/images/ingredients/${ingredient}-Small.png`}
+                  alt={ingredient}
+                />
+                <h5>{ingredient}</h5>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>

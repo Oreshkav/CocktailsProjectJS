@@ -21,11 +21,11 @@ function Coctails():  JSX.Element {
 
         {cocktails.map((eachCocktail) => (
           <li className={styles.card} key={eachCocktail.idDrink.toString()}>
-            <span>{eachCocktail.strDrink}</span>
+            {/* <span>{eachCocktail.strDrink}</span> */}
             <div className={styles.imgContainer}>
               <img className={styles.img} src={eachCocktail.strDrinkThumb}  />
             </div>
-            <Link to={eachCocktail.idDrink.toString()}> Look more</Link>
+            <Link to={eachCocktail.idDrink.toString()}>{eachCocktail.strDrink}</Link>
           </li>
         ))}
         
