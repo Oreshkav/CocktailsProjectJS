@@ -1,10 +1,12 @@
 import React, { FormEvent, useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useParams} from 'react-router-dom';
 import Ingredient from './types/Ingredient';
 import styles from './Cocktails.module.css';
 import Cocktail from './types/Cocktail';
 
 function Ingredients() {
+
+  const { cocktailID } = useParams();
 
   const [ingredient, setIngredient] = useState<Ingredient[]>([]);
   const [ingredientChoice, setIngredientChoice] = useState<string>('');
@@ -28,11 +30,10 @@ function Ingredients() {
       .then((json) => setCocktails(json.drinks));
   }, [flag]);
 
-  // console.log("INGREDIENTS LIST ");
-  // console.log(ingredient);
-
   return (
     <>
+    { !cocktailID ?  (
+      <div>
       <form onSubmit={handleSubmit}>
         <select name="ingredients" id="ingredintSelect" onChange={(event) => setIngredientChoice(event.target.value)}>
           {ingredient.map((eachIngredient) =>
@@ -43,34 +44,19 @@ function Ingredients() {
         <button type="submit">Filter</button>
       </form>
 
-      <div>
-        {/* !cocktailID ? (  */}
         <ul className={styles.cardsList}>
           {cocktails.map((eachCocktail) => (
             <li className={styles.card} key={eachCocktail.idDrink.toString()}>
-              <span>{eachCocktail.strDrink}</span>
+              {/* <span>{eachCocktail.strDrink}</span> */}
               <div className={styles.imgContainer}>
                 <img className={styles.img} src={eachCocktail.strDrinkThumb} />
               </div>
-              <Link to={eachCocktail.idDrink.toString()}> Look more</Link>
+              <Link to={eachCocktail.idDrink.toString()}>{eachCocktail.strDrink}</Link>
             </li>
           ))}
         </ul>
-
-      </div>
-      <Outlet />
-
-      {/* <br /><br />
-      <div className={styles.cardsList}>
-        {ingredient.map((eachIngredient) => (<div className={styles.card}> {eachIngredient.strIngredient1}
-          <div className={styles.imgContainer}>
-            <img src={`https:\\www.thecocktaildb.com/images/ingredients/${eachIngredient.strIngredient1}-Medium.png`} alt="ingredient img" />
-          </div>
         </div>
-        ))}
-        <Outlet />
-      </div>
-      <Outlet /> */}
+        ) : <Outlet />}
     </>
   )
 }
