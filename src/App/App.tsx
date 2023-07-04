@@ -11,18 +11,23 @@ function App(): JSX.Element {
 
   const [pageName, setPageName] = useState(true);
 
-  function setPageNameFunction() {
-    setPageName(prev => !prev)
-  }
+  // function setPageNameFunction() {
+  //   setPageName(prev => !prev)
+  // }
 
   return (
     <div className="App">
       <div className="header">
         <h1>Bar Jamajka </h1>
-        <nav>
+        {/* <nav>
           <Link to="cocktailsList" onClick={setPageNameFunction} className='coktaillist'>Cocktails list</Link>
           <br />
           <Link to="ingredients" onClick={setPageNameFunction} className='coktaillist'>Cocktails by ingredients</Link>
+        </nav> */}
+        <nav>
+          <Link to="cocktailsList" onClick={() => setPageName(true)} className='coktaillist'>Cocktails list</Link>
+          <br />
+          <Link to="ingredients" onClick={() => setPageName(false)} className='coktaillist'>Cocktails by ingredients</Link>
         </nav>
       </div>
       <br />
