@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import styles from './Cocktails.module.css'
 import { CocktailBest } from './types/Cocktail';
 
 function CocktailPage(): JSX.Element {
   const { cocktailID } = useParams();
+  const {telegramBot} = useParams();
+  console.log("🚀  CocktailPage ~ telegramBot:", telegramBot)
   const [cocktail, setCocktail] = useState<CocktailBest | undefined>(undefined);
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [drinkIngredientsMeasure, setDrinkIngredientsMeasure] = useState<string[]>([]);
@@ -48,8 +50,10 @@ function CocktailPage(): JSX.Element {
   }
 
   return (
+    !telegramBot ? (
     <>
-      <Link to="..">Back</Link>
+      <Link to="..">Back </Link>
+      <Link to="telegramBot"> telegramBot</Link>
       <div>
         <div className={styles.cocktailTitle}>
           <h2>{cocktail.strDrink}</h2>
@@ -93,7 +97,10 @@ function CocktailPage(): JSX.Element {
             </div>
         </div>
       </div>
+    
     </>
+     ) : <Outlet /> 
+
   );
 }
 
