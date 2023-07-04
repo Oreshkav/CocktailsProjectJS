@@ -5,14 +5,10 @@ import { CocktailBest } from './types/Cocktail';
 
 function CocktailPage(): JSX.Element {
   const { cocktailID } = useParams();
-  const {telegramBot} = useParams();
-  console.log("🚀  CocktailPage ~ telegramBot:", telegramBot)
+  const { telegramBot } = useParams();
   const [cocktail, setCocktail] = useState<CocktailBest | undefined>(undefined);
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [drinkIngredientsMeasure, setDrinkIngredientsMeasure] = useState<string[]>([]);
-
-  // console.log("ingredients****");
-  // console.log(ingredients);
 
   useEffect(() => {
     fetch(
@@ -22,7 +18,6 @@ function CocktailPage(): JSX.Element {
       .then((json) => {
         const drink = json.drinks?.[0];
 
-        // console.log("🚀 drink:", drink);
         if (drink) {
           const drinkIngredients: string[] = [];
           const drinkIngredientsMeasure: string[] = [];
@@ -51,56 +46,55 @@ function CocktailPage(): JSX.Element {
 
   return (
     !telegramBot ? (
-    <>
-      <Link to="..">Back </Link>
-      <Link to="telegramBot"> telegramBot</Link>
-      <div>
-        <div className={styles.cocktailTitle}>
-          <h2>{cocktail.strDrink}</h2>
-          <p>
-            Category: {cocktail.strCategory} *** ID {cocktail.idDrink}
-          </p>
-          <img
-            className={styles.imgCard}
-            src={cocktail.strDrinkThumb}
-            alt="cocktail"
-          />
-        </div>
-        <div className={styles.description}>
-          Type of glass: {cocktail.strGlass}
-        </div>
-        <div className={styles.receipt} >
-          <h3>RECIEPT: </h3>
-          <p>{cocktail.strInstructions}</p>
-        </div>
-
+      <>
+        <Link to="..">Back </Link>
+        <Link to="telegramBot"> telegramBot</Link>
         <div>
-          {/* <h2>INGREDIENTS</h2> */}
-          <div className={styles.ingredientsClass}>
-            {ingredients.map((ingredient, index) => (
-              <div key={index}>                
-                <img
-                  className={styles.imgCardIngredient}
-                  src={`https://www.thecocktaildb.com/images/ingredients/${ingredient}-Small.png`}
-                  alt={ingredient}
-                />
-                <p>{ingredient}</p>
-              </div>
-            ))}
+          <div className={styles.cocktailTitle}>
+            <h2>{cocktail.strDrink}</h2>
+            <p>
+              Category: {cocktail.strCategory} *** ID {cocktail.idDrink}
+            </p>
+            <img
+              className={styles.imgCard}
+              src={cocktail.strDrinkThumb}
+              alt="cocktail"
+            />
           </div>
-          <div className={styles.ingredientsClass}>
-            {drinkIngredientsMeasure.map((measure, index2) => (
-              <div className={styles.measureClass} key={index2}>
-                <span>{`${measure}`}</span>
-              </div>
-            ))}
-            </div>
-        </div>
-      </div>
-    
-    </>
-     ) : <Outlet /> 
+          <div className={styles.description}>
+            Type of glass: {cocktail.strGlass}
+          </div>
+          <div className={styles.receipt} >
+            <h3>RECIEPT: </h3>
+            <p>{cocktail.strInstructions}</p>
+          </div>
 
+          <div>
+            {/* <h2>INGREDIENTS</h2> */}
+            <div className={styles.ingredientsClass}>
+              {ingredients.map((ingredient, index) => (
+                <div key={index}>
+                  <img
+                    className={styles.imgCardIngredient}
+                    src={`https://www.thecocktaildb.com/images/ingredients/${ingredient}-Small.png`}
+                    alt={ingredient}
+                  />
+                  <p>{ingredient}</p>
+                </div>
+              ))}
+            </div>
+            <div className={styles.ingredientsClass}>
+              {drinkIngredientsMeasure.map((measure, index2) => (
+                <div className={styles.measureClass} key={index2}>
+                  <span>{`${measure}`}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </>
+    ) : <Outlet />
   );
 }
 

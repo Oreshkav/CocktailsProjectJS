@@ -9,6 +9,7 @@ body {
   background-color: #1f1a19;
   margin-bottom: 15px;
 }
+
 body a {
   /* color: rgb(238, 26, 192); */
   color: rgb(216, 252, 14, 0.897);
@@ -20,7 +21,7 @@ body a {
   grid-template-rows: 1fr;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  
+
 }
 
 .card {
@@ -36,21 +37,23 @@ body a {
   font-size: 1.5em;
 }
 
-h1, h5, h6 {
+h1,
+h5,
+h6 {
   margin-top: 3px;
   margin-bottom: 5px
 }
 
 
 .description {
-color: rgba(216, 252, 14, 0.897);
-font-size: 1.2em;
+  color: rgba(216, 252, 14, 0.897);
+  font-size: 1.2em;
 }
 
 .receipt {
   color: rgba(216, 252, 14, 0.897);
   font-size: 1.2em;
-  }
+}
 
 .img {
   width: 200px;
@@ -73,6 +76,7 @@ font-size: 1.2em;
   /* height: 100%; */
   /* flex-wrap: wrap; */
 }
+
 .measureClass {
   display: flex;
   justify-content: center;
@@ -95,8 +99,8 @@ font-size: 1.2em;
   font-size: 12px;
   padding: 0px 10px;
   border-radius: 10px;
-  width: 100px; 
-  height: 30px; 
+  width: 100px;
+  height: 30px;
 }
 
 .buttonIngredient:hover {
@@ -117,4 +121,3 @@ font-size: 1.2em;
   padding: 16px;
   box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.75);
 }
-

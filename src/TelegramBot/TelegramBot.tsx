@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-function TelegramBot() :JSX.Element {
+function TelegramBot(): JSX.Element {
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   // const [cocktailId, setCocktailId] = useState('');
   const { cocktailID } = useParams();
-
 
   const handleSubmit = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
@@ -45,12 +44,12 @@ function TelegramBot() :JSX.Element {
           <form onSubmit={handleSubmit}>
             <div className="input-box">
               <input
-              type="text"
-              name='cocktailId'
-              placeholder="ID coctails"
-              value={cocktailID}
-              // onChange={(event) => setCocktailId(event.target.value)}
-              required
+                type="text"
+                name='cocktailId'
+                placeholder="ID coctails"
+                value={cocktailID}
+                // onChange={(event) => setCocktailId(event.target.value)}
+                required
               ></input>
             </div>
             <div className="input-box">
@@ -65,9 +64,9 @@ function TelegramBot() :JSX.Element {
             </div>
             <div className="input-box">
               <input type="text"
-              placeholder="Quantity of cocktails"
-              value={quantity}
-              onChange={(event) => setQuantity(event.target.value)}
+                placeholder="Quantity of cocktails"
+                value={quantity}
+                onChange={(event) => setQuantity(event.target.value)}
               />
             </div>
             <div className="button">

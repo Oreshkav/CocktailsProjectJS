@@ -29,8 +29,8 @@ function App(): JSX.Element {
 
       <Routes >
         <Route path="/" element={<HomePage />} />
-        <Route path={pageName? "cocktailsList" : "ingredients"} 
-               element={pageName ? <CocktailsList /> : <Ingredients /> }>
+        <Route path={pageName ? "cocktailsList" : "ingredients"}
+          element={pageName ? <CocktailsList /> : <Ingredients />}>
           <Route path=":cocktailID" element={<CocktailPage />} >
             <Route path=":telegramBot" element={<TelegramBot />} />
           </Route>
